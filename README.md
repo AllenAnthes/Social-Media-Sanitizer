@@ -6,3 +6,6 @@ Using our new Social Media Sanitizer, with a simple login and press of a button,
 
 Youtube Link:
 [link to Mules 1 KCFed Codeathon Demonstration Video](https://www.youtube.com/watch?v=eQMAcw64jPk&feature=youtu.be)
+
+
+Created using Java Sprint-Boot for backend, Spring Social for Facebook and Twitter integration. Front-end used W3CSS, W3C HTML templates, and Bootstrap for dynamic webpage.
