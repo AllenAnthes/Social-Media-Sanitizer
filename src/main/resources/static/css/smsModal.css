@@ -1,0 +1,28 @@
+object  {
+    width:auto;
+    max-width: 100%;
+    max-height: 70vh;
+    width: auto\9; /* ie8 */
+}
+
+object:hover {
+    -o-transition:.7s;
+    -moz-transition:.7s;
+    -webkit-transition:.7s;
+    transition:.7s;
+    background-color: lightblue;
+
+}
+
+#socialMediaModal{
+    text-align: center;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    #sm-dialog {
+        width: auto;
+        max-width: 90%;
+
+    }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no"/>
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet" media="screen"
+          th:href="@{/webjars/bootstrap/4.0.0-beta/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div class="modal fade" id="resumeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" th:fragment="resumeModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Resume Builder</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" th:action="@{/resume}" th:object="${resume}" method="POST">
+                    <h2>Personal Information</h2>
+
+                    <p id="rNameParent">
+                        <input type="text" class="form-control"
+                               placeholder="Name"
+                               name="Name"
+                               id="rName" th:field="*{name}"/>
+                        <input type="text" placeholder="Address" class="form-control"
+                               name="Address" id="rAddress" th:field="*{address}"/>
+                        <input type="text" placeholder="Phone Number" name="Phone Number" class="form-control"
+                               id="rPhone"/>
+                        <input type="text" placeholder="Email" th:field="*{email}"
+                               class="form-control" name="Email" id="rEmail"/>
+                        <input type="text" placeholder="LinkedIn" th:field="*{linkedIn}" class="form-control"
+                               name="LinkedIn" id="rLinkedIn"/>
+                        <input type="text" placeholder="Repository" th:field="*{repository}" class="form-control"
+                               name="Repository" id="rRepository"/></p>
+                    <hr/>
+                    <h2>Work Experience</h2>
+
+                    <p id="rWorkParent">
+                        <input type="text" placeholder="Position" th:field="*{position}" class="form-control"
+                               name="Position" id="rPosition"/>
+                        <input type="text" placeholder="Company" th:field="*{company}" class="form-control"
+                               name="Company" id="rCompany"/>
+                        <input type="text" placeholder="Start Date" th:field="*{startDate}" class="form-control"
+                               name="Start Date" id="rStart"/>
+                        <input type="text" placeholder="End Date" th:field="*{endDate}" class="form-control"
+                               name="End Date" id="rEnd"/></p>
+                    <hr/>
+                    <h2>Education</h2>
+
+                    <p id="rEducationParent">
+                        <input type="text" placeholder="University" th:field="*{university}" class="form-control"
+                               name="University" id="rUniversity"/>
+                        <input type="text" placeholder="Program" th:field="*{program}" class="form-control"
+                               name="Program" id="rProgram"/>
+                        <input type="text" placeholder="Degree" th:field="*{degree}" class="form-control"
+                               name="Degree" id="rDegree"/></p>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Submit Form"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</html>
