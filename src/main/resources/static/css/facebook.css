@@ -1,0 +1,10 @@
+​.header
+{
+    height:50px;
+    position:relative;
+
+}
+body {
+    margin: 25px 0 0 0; /* considering that the header is 25px */
+    padding-top: 50px;
+}

@@ -6,6 +6,7 @@ import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,9 +38,18 @@ public class TwitterController {
                                                         .stream()
                                                         .filter(tweet -> checkWords(tweet.getText()))
                                                         .collect(Collectors.toList());
-        model.addAttribute("tweets", tweets);
-        return "tweets";
+//        model.addAttribute("tweets", tweets);
+        model.addAttribute("tweets", twitter.timelineOperations().getUserTimeline(20, 0, Long.MIN_VALUE));
+        return "twitter";
     }
+
+    @RequestMapping(value = "/{id}")
+    public String deleteTweet(@PathVariable Long id, Model model) {
+        twitter.timelineOperations().deleteStatus(id);
+//        model.addAttribute("tweets", twitter.timelineOperations().getUserTimeline(20, 0, Long.MIN_VALUE));
+        return "redirect:/twitter";
+    }
+
 
     private boolean checkWords(String text) {
 
