@@ -1,5 +1,6 @@
 package com.kcfed.ucmo.smsbackend.controllers;
 
+import com.kcfed.ucmo.smsbackend.models.Resume;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.*;
 import org.springframework.stereotype.Controller;
@@ -54,6 +55,7 @@ public class FacebookController {
         PagedList<Post> testPosts = facebook.feedOperations().getFeed();
 
         model.addAttribute("feed", testPosts);
+        model.addAttribute("resume", new Resume());
         return "facebook";
     }
 

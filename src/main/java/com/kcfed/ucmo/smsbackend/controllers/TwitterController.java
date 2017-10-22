@@ -1,6 +1,7 @@
 package com.kcfed.ucmo.smsbackend.controllers;
 
 
+import com.kcfed.ucmo.smsbackend.models.Resume;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
@@ -33,20 +34,22 @@ public class TwitterController {
     @RequestMapping(method=RequestMethod.GET)
     public String helloTwitter(Model model) {
 
-        List<Tweet> tweets = twitter.timelineOperations()
-                                                        .getUserTimeline(20, 0, Long.MIN_VALUE)
-                                                        .stream()
-                                                        .filter(tweet -> checkWords(tweet.getText()))
-                                                        .collect(Collectors.toList());
+//        List<Tweet> tweets = twitter.timelineOperations()
+//                                                        .getUserTimeline(20, 0, Long.MIN_VALUE)
+//                                                        .stream()
+//                                                        .filter(tweet -> checkWords(tweet.getText()))
+//                                                        .collect(Collectors.toList());
 //        model.addAttribute("tweets", tweets);
+
+        // getting all tweets for testing
         model.addAttribute("tweets", twitter.timelineOperations().getUserTimeline(20, 0, Long.MIN_VALUE));
+        model.addAttribute("resume", new Resume());
         return "twitter";
     }
 
     @RequestMapping(value = "/{id}")
     public String deleteTweet(@PathVariable Long id, Model model) {
         twitter.timelineOperations().deleteStatus(id);
-//        model.addAttribute("tweets", twitter.timelineOperations().getUserTimeline(20, 0, Long.MIN_VALUE));
         return "redirect:/twitter";
     }
 

@@ -17,6 +17,11 @@ object:hover {
 #socialMediaModal{
     text-align: center;
     height: auto;
+
+}
+
+#smmContent {
+    background-color: rgba(255,255,255,0.85);
 }
 
 @media (min-width: 768px) {
@@ -26,3 +31,4 @@ object:hover {
 
     }
 }
+
