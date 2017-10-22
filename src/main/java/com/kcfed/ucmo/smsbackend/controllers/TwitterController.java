@@ -50,7 +50,7 @@ public class TwitterController {
     @RequestMapping(value = "/{id}")
     public String deleteTweet(@PathVariable Long id, Model model) {
         twitter.timelineOperations().deleteStatus(id);
-        return "redirect:/twitter";
+        return "redirect:/tweets";
     }
 
 
