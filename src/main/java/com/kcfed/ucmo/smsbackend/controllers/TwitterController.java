@@ -22,7 +22,7 @@ public class TwitterController {
     private Twitter twitter;
     private ConnectionRepository connectionRepository;
 
-    private String[] words = {"next", "birthday", "drinks", "heavens to betsy", "darn", "dag nabbit", "drank", "drunk", "wasted" };
+    private String[] words = {"birthday", "drinks", "heavens to betsy", "darn", "dag nabbit", "drank", "drunk", "wasted" };
 
 
     @Inject
@@ -48,7 +48,7 @@ public class TwitterController {
     }
 
     @RequestMapping(value = "/{id}")
-    public String deleteTweet(@PathVariable Long id, Model model) {
+    public String deleteTweet(@PathVariable Long id) {
         twitter.timelineOperations().deleteStatus(id);
         return "redirect:/tweets";
     }

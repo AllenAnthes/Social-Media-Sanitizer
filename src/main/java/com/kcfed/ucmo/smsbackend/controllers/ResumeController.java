@@ -20,7 +20,7 @@ public class ResumeController {
         else
             model.addAttribute("resume", resume);
 
-        return "resumeFromTemplate";
+        return "resume";
     }
 
     @RequestMapping(method=RequestMethod.POST)
@@ -46,6 +46,6 @@ public class ResumeController {
         this.resume = resume;
         model.addAttribute("resume", resume);
 
-        return "resumeFromTemplate";
+        return "resume";
     }
 }
