@@ -64,8 +64,10 @@ public class FacebookController {
         if (post.getMessage() != null) {
             String message = post.getMessage().toLowerCase();
             for (String word : words) {
-                if (message.contains(word))
+                if (message.contains(word)) {
+
                     return true;
+                }
             }
         }
         if (post.getCaption() != null) {
