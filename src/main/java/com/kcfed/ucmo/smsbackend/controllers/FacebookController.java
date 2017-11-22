@@ -2,7 +2,10 @@ package com.kcfed.ucmo.smsbackend.controllers;
 
 import com.kcfed.ucmo.smsbackend.models.Resume;
 import org.springframework.social.connect.ConnectionRepository;
-import org.springframework.social.facebook.api.*;
+import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.api.PagedList;
+import org.springframework.social.facebook.api.Post;
+import org.springframework.social.facebook.api.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +20,7 @@ public class FacebookController {
 
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
-    private String[] words = {"next", "birthday", "drinks", "heavens to betsy", "darn", "dag nabbit", "drank", "drunk", "wasted" };
+    private String[] words = {"next", "birthday", "drinks", "heavens to betsy", "darn", "dag nabbit", "drank", "drunk", "wasted"};
 
     public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
         this.facebook = facebook;
@@ -29,7 +32,7 @@ public class FacebookController {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
             return "redirect:/";
         }
-        String [] fields = { "id","name","birthday","email","location","hometown","gender","first_name","last_name"};
+        String[] fields = {"id", "name", "birthday", "email", "location", "hometown", "gender", "first_name", "last_name"};
         User user = facebook.fetchObject("me", User.class, fields);
         String name = user.getName();
         String birthday = user.getBirthday();
@@ -37,12 +40,12 @@ public class FacebookController {
         String gender = user.getGender();
         String firstname = user.getFirstName();
         String lastname = user.getLastName();
-        model.addAttribute("name",name );
-        model.addAttribute("birthday",birthday );
-        model.addAttribute("email",email );
-        model.addAttribute("gender",gender);
-        model.addAttribute("firstname",firstname);
-        model.addAttribute("lastname",lastname);
+        model.addAttribute("name", name);
+        model.addAttribute("birthday", birthday);
+        model.addAttribute("email", email);
+        model.addAttribute("gender", gender);
+        model.addAttribute("firstname", firstname);
+        model.addAttribute("lastname", lastname);
         model.addAttribute("facebookProfile", facebook.fetchObject("me", User.class, fields));
 
         List<Post> posts = facebook

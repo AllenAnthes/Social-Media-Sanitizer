@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Peralta" rel="stylesheet"/>
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" media="screen"
+          th:href="@{css/bootstrap.min.css}"/>
+    <link type="text/css" th:href="@{css/accounts.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+
+<section class="login-block">
+    <div class="container">
+        <div class="login-sec">
+            <h2 class="text-center">Create New Account</h2>
+            <!--/*@thymesVar id="userForm" type="com.kcfed.ucmo.smsbackend.models.User"*/-->
+            <form method="post" action="#" th:action="@{/registration}" th:object="${userForm}">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" th:field="*{username}"/>
+
+                        <p th:if="${#fields.hasErrors('username')}"
+                           th:id="error-username" class="help-block" th:errors="*{username}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" th:field="*{password}"/>
+                        <p th:if="${#fields.hasErrors('password')}"
+                           th:id="error-password" class="help-block" th:errors="*{password}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="confirmPass">Confirm</label>
+                        <input type="password" id="confirmPass" th:field="*{passwordConfirm}"/>
+                        <p th:if="${#fields.hasErrors('passwordConfirm')}"
+                           th:id="error-passwordConfirm" class="help-block" th:errors="*{passwordConfirm}"></p>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <button type="submit" class="btn btn-login float-right">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-muted text-center">
+            Already have an account? <a href="/login">Log in</a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

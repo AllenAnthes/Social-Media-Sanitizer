@@ -35,6 +35,10 @@
                 <a class="nav-link disabled" href="#">Coming Soon!</a>
             </li>
         </ul>
+        <form class="form-inline ml-auto" id="logoutForm" method="POST" action="/logout">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <button type="submit" class="btn btn-outline-secondary">Log out</button>
+        </form>
     </div>
 
 
